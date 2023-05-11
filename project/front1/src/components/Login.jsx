@@ -1,7 +1,9 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import axios from 'axios';
-
+import {useNavigate} from 'react-router-dom';
 const Login = () => {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState('');
   const emailinput = e => {
     setEmail(e.target.value);
@@ -15,8 +17,28 @@ const Login = () => {
     axios.post(`http://localhost:9000/auth/signin`,{
       email,
       password
-    })
+    }).then(
+      result=>{
+        console.log(result);
+        localStorage.setItem('mytoken',result.data.token);
+      }
+    )
   };
+
+  useEffect(()=>{
+    axios.post(`http://localhost:9000/auth/login`,{
+      mytoken:localStorage.getItem('mytoken')
+    })
+    .then(result=>{
+      console.log('login suc');
+      navigate('/mypage');
+    })
+    .catch(err=>{
+      console.log(err.response.data.code);
+
+    })
+  },[]);
+
   
   return (
     <div style={{padding: '1rem'}}>

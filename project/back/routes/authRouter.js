@@ -8,9 +8,15 @@ const secretKey = 'a123456789';
 
 router.post('/login',async(req,res)=>{
   try{
-    const result = await jwt.verify(req.body.mytoken, secretKey);
-    console.log(result);
-    return res.send('login');
+    // jwt 다시 발행해야함
+    const decoded = await jwt.verify(req.body.mytoken, secretKey);
+    const now = Date.now().valueOf() / 1000;
+    if (decoded.exp - now < 60 * 60) { // 만료 시간 1시간 전
+      const { iat, exp, ...payload } = decoded;
+      const newToken = jwt.sign(payload, secret, { expiresIn });
+      return newToken;
+    }
+    return res.json(result);
   }catch(error){
     if (error.name === 'TokenExpiredError') { // 유효기간 초과
       return res.status(419).json({

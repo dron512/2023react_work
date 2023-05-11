@@ -6,7 +6,6 @@ const UserSelect = () => {
   const {ok, setOk} = useContext(selectContext);
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    console.log('useEffect 사용...');
     let myTimer = null;
     axios
       .get(`http://localhost:9000/users/list`)
