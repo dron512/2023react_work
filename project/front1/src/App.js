@@ -5,6 +5,7 @@ import User from './components/User';
 import {Route, Routes} from 'react-router-dom';
 import FreeBoard from './components/FreeBoard';
 import Login from './components/Login';
+import MyPage from './components/MyPage';
 
 export const selectContext = createContext();
 
@@ -47,6 +48,7 @@ function App() {
           <Route path="user" element={<User />}></Route>
           <Route path="freeboard" element={<FreeBoard />}></Route>
           <Route path="login" element={<Login />}></Route>
+          <Route path="mypage" element={<MyPage />}></Route>
         </Routes>
       </selectContext.Provider>
     </>

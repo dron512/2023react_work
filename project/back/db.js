@@ -18,6 +18,7 @@ const User = sequelize.define('user', {
     allowNull: false,
     unique: true,
   },
+  
   password: {
     type: Sequelize.STRING(150),
     allowNull: false,
@@ -39,14 +40,22 @@ const Board = sequelize.define('board', {
     type: Sequelize.STRING(50),
     allowNull: false,
   },
-  writer: {
+  name: {
     type: Sequelize.STRING(50),
     allowNull: false
   },
+  email: {
+    type: Sequelize.STRING(50),
+    allowNull: false,
+  },
+  filename: {
+    type: Sequelize.STRING(150),
+    allowNull: true,
+  },
 });
 
-User.hasMany(Board);
-Board.belongsTo(User);
+User.hasMany(Board,{foreignKey:"userid",sourceKey:"id"});
+Board.belongsTo(User,{foreignKey:"userid",targetKey:"id"});
 
 Board.sync({ force: true })
   .then(() => console.log('board table created!'))
