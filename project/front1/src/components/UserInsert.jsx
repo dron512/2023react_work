@@ -49,17 +49,17 @@ const UserInsert = () => {
       <div>
         <div>
           <label>email</label>
-          <input style={{display:'block',width:"50%",height:"1.7rem"}} type="email" onChange={emailinput} value={email} />
+          <input className='form-control' type="email" onChange={emailinput} value={email} />
         </div>
         <div>
           <label>name</label>
-          <input style={{display:'block',width:"50%",height:"1.7rem"}} type="text" onChange={nameInput} value={name} />
+          <input className='form-control' type="text" onChange={nameInput} value={name} />
         </div>
         <div>
           <label>password</label>
-          <input style={{display:'block',width:"50%",height:"1.7rem"}} type="password" onChange={passwordInput} value={password} />
+          <input className='form-control' type="password" onChange={passwordInput} value={password} />
         </div>
-        <button style={{padding:".5rem",marginTop:".5rem",fontSize:"1.2rem"}} onClick={dosave}>insert</button>
+        <button className='btn btn-primary my-3' onClick={dosave}>insert</button>
         <h1>{ok}</h1>
       </div>
     </>

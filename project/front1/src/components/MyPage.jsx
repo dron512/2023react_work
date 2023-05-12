@@ -28,10 +28,10 @@ const MyPage = () => {
   }, []);
 
   return (
-    <div style={{padding: '1rem'}}>
+    <div className='m-3'>
       <h1>MyPage</h1>
       <MyContent>
-        <MyPageH2>나의정보</MyPageH2>
+        <MyPageH2>MyInfomation</MyPageH2>
         <label>EMAIL</label>
         <p>{email}</p>
         <label>NAME</label>

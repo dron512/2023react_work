@@ -25,7 +25,7 @@ const UserSelect = () => {
   return (
     <div>
       <h1>select</h1>
-      <table style={{border: '1px solid black', width: '100%'}}>
+      <table className='table table-hover border text-center'>
         <thead>
           <tr>
             <th>Name</th>

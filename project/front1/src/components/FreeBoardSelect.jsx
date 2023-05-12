@@ -45,7 +45,7 @@ const FreeBoardSelect = () => {
     return (
       <div>
         <h1>select</h1>
-        <table style={{border: '1px solid black', width: '100%'}}>
+        <table className='table table-hover border p-1 text-center'>
           <thead>
             <tr>
               <th>file</th>
@@ -76,7 +76,7 @@ const FreeBoardSelect = () => {
                   <td>
                     <button
                       id={board.id}
-                      style={{padding: '.5rem'}}
+                      className='btn btn-primary'
                       onClick={doDel}
                     >
                       삭제

@@ -24,10 +24,10 @@ function MyFontSize() {
   return (
     <div style={{textAlign: 'center', paddingTop: '50px'}}>
       <h1>전체 글자크기 바꾸기</h1>
-      <button style={{width: '50px', height: '50px'}} onClick={doBigger}>
+      <button className='border m-1' style={{width: '50px', height: '50px'}} onClick={doBigger}>
         +
       </button>
-      <button style={{width: '50px', height: '50px'}} onClick={doSmaller}>
+      <button className='border m-1' style={{width: '50px', height: '50px'}} onClick={doSmaller}>
         -
       </button>
     </div>
@@ -41,9 +41,15 @@ function App() {
       <MyNav />
       <selectContext.Provider value={{ok, setOk}}>
         <Routes>
-          <Route exact
+          <Route
+            exact
             path="/"
-            element={<><h1 style={{padding: '1rem'}}>메뉴를 클릭해주세요</h1><MyFontSize/></>}
+            element={
+              <>
+                <h1 className='p-2'>메뉴를 클릭해주세요</h1>
+                <MyFontSize />
+              </>
+            }
           ></Route>
           <Route path="/user" element={<User />}></Route>
           <Route path="/freeboard" element={<FreeBoard />}></Route>

@@ -69,50 +69,49 @@ const FreeBoardInsert = () => {
   };
   return (
     <>
-      <div>
+      <div className="m-1">
         <label>title</label>
         <input
-          style={{display: 'block', width: '50%', height: '1.7rem'}}
+          className="form-control"
           type="text"
           onChange={titlelInput}
           value={title}
         />
       </div>
-      <div>
+      <div className="m-1">
         <label>content</label>
         <textarea
           rows="10"
-          style={{display: 'block', width: '75%'}}
+          className="form-control"
           type="text"
           onChange={contentInput}
           value={content}
         ></textarea>
       </div>
-      <div>
+      <div className="m-1">
         <label>name</label>
         <input
-          style={{display: 'block', width: '50%', height: '1.7rem'}}
+          className="form-control"
           type="text"
           onChange={nameInput}
           value={name}
         />
       </div>
-      <div>
+      <div className="m-1">
         <label>email</label>
         <input
-          style={{display: 'block', width: '50%', height: '1.7rem'}}
+          className="form-control"
           type="text"
           onChange={emailInput}
           value={email}
         />
       </div>
-      <input type="file" onChange={handleFileChange} />
-      <button
-        onClick={write}
-        style={{padding: '0.5rem', marginTop: '0.5rem', fontSize: '1.2rem'}}
-      >
-        Write
-      </button>
+      <div className="d-flex justify-contnet-end m-3">
+        <input type="file" onChange={handleFileChange} className='btn btn-primary me-3'/>
+        <button onClick={write} className="btn btn-primary">
+          Write
+        </button>
+      </div>
     </>
   );
 };

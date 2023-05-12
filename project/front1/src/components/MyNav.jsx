@@ -21,9 +21,9 @@ const MyNav = () => {
   };
   return (
     <div>
-      <div style={{display: 'flex', justifyContent: 'space-between' }}>
-        <h1 style={{cursor:"pointer",padding:'.5rem',paddingLeft:'1rem'}} onClick={()=>{navigate('/')}}>HOME</h1>
-        <h1 style={{cursor: 'pointer',padding:'.5rem', paddingRight:'1rem'}} onClick={menu}>
+      <div className='d-flex justify-content-between'>
+        <h1 className='display-2 p-2 m-2' style={{cursor:'pointer'}} onClick={()=>{navigate('/')}}>HOME</h1>
+        <h1 className='display-2 p-2 m-2' style={{cursor:'pointer'}} onClick={menu}>
           메뉴
         </h1>
       </div>

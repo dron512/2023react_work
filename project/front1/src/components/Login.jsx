@@ -2,8 +2,8 @@ import {useEffect, useState} from 'react';
 import axios from 'axios';
 import {useNavigate, useParams} from 'react-router-dom';
 const Login = () => {
-  const params= useParams();
-  const [myinfo,setMyinfo] = useState(params.info);
+  const params = useParams();
+  const [myinfo, setMyinfo] = useState(params.info);
   const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
@@ -15,45 +15,44 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
-  const [token,setToken] = useState('');
+  const [token, setToken] = useState('');
 
   const signin = () => {
-    axios.post(`http://localhost:9000/auth/signin`,{
-      email,
-      password
-    }).then(
-      result=>{
+    axios
+      .post(`http://localhost:9000/auth/signin`, {
+        email,
+        password,
+      })
+      .then(result => {
         setToken(result.data.token);
-        localStorage.setItem('mytoken',result.data.token);
-      }
-    )
+        localStorage.setItem('mytoken', result.data.token);
+      });
   };
 
-  useEffect(()=>{
-    axios.post(`http://localhost:9000/auth/login`,{
-      mytoken:localStorage.getItem('mytoken')
-    })
-    .then(result=>{
-      console.log(result);
-      if( result.data.newToken ){
-        localStorage.setItem('mytoken',result.data.newToken)
-      }
-      navigate('/mypage');
-    })
-    .catch(err=>{
-      console.log(err.response.data.code);
+  useEffect(() => {
+    axios
+      .post(`http://localhost:9000/auth/login`, {
+        mytoken: localStorage.getItem('mytoken'),
+      })
+      .then(result => {
+        console.log(result);
+        if (result.data.newToken) {
+          localStorage.setItem('mytoken', result.data.newToken);
+        }
+        navigate('/mypage');
+      })
+      .catch(err => {
+        console.log(err.response.data.code);
+      });
+  }, [token]);
 
-    })
-  },[token]);
-
-  
   return (
     <div style={{padding: '1rem'}}>
       <h1>Login</h1>
       <div>
         <label>email</label>
         <input
-          style={{display: 'block', width: '50%', height: '1.7rem'}}
+          className="form-control"
           type="text"
           onChange={emailinput}
           value={email}
@@ -62,16 +61,13 @@ const Login = () => {
       <div>
         <label>password</label>
         <input
-          style={{display: 'block', width: '50%', height: '1.7rem'}}
+          className="form-control"
           type="text"
           onChange={passwordInput}
           value={password}
         />
       </div>
-      <button
-        onClick={signin}
-        style={{padding: '0.5rem', marginTop: '0.5rem', fontSize: '1.2rem'}}
-      >
+      <button onClick={signin} className="btn btn-primary mt-3">
         SIGNIN
       </button>
       <h1>{myinfo}</h1>
