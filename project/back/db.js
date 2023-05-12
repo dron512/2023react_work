@@ -57,7 +57,7 @@ const Board = sequelize.define('board', {
 User.hasMany(Board,{foreignKey:"userid",sourceKey:"id"});
 Board.belongsTo(User,{foreignKey:"userid",targetKey:"id"});
 
-Board.sync({ force: true })
+Board.sync({ force: false })
   .then(() => console.log('board table created!'))
   .catch(err => console.error(err));
 
