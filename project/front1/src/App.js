@@ -41,14 +41,16 @@ function App() {
       <MyNav />
       <selectContext.Provider value={{ok, setOk}}>
         <Routes>
-          <Route
+          <Route exact
             path="/"
             element={<><h1 style={{padding: '1rem'}}>메뉴를 클릭해주세요</h1><MyFontSize/></>}
           ></Route>
-          <Route path="user" element={<User />}></Route>
-          <Route path="freeboard" element={<FreeBoard />}></Route>
-          <Route path="login" element={<Login />}></Route>
-          <Route path="mypage" element={<MyPage />}></Route>
+          <Route path="/user" element={<User />}></Route>
+          <Route path="/freeboard" element={<FreeBoard />}></Route>
+          <Route path="/login" element={<Login />}>
+            <Route path=":info" element={<h1>Test</h1>} />
+          </Route>
+          <Route path="/mypage" element={<MyPage />}></Route>
         </Routes>
       </selectContext.Provider>
     </>

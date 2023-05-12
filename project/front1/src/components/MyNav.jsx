@@ -28,9 +28,9 @@ const MyNav = () => {
         </h1>
       </div>
       <div style={mystyle} className='myMenu'>
-        <Link to="user">User</Link>
-        <Link to="freeboard">FreeBoard</Link>
-        <Link to="login">Login</Link>
+        <Link to="/user">User</Link>
+        <Link to="/freeboard">FreeBoard</Link>
+        <Link to="/login">Login</Link>
       </div>
     </div>
   );

@@ -23,7 +23,7 @@ const MyPage = () => {
       })
       .catch(err => {
         console.log(err);
-        navigate('/login');
+        navigate('/login/세션이만료되어로그인하셔야됩니다.');
       });
   }, []);
 

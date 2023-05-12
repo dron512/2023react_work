@@ -1,7 +1,9 @@
 import {useEffect, useState} from 'react';
 import axios from 'axios';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 const Login = () => {
+  const params= useParams();
+  const [myinfo,setMyinfo] = useState(params.info);
   const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
@@ -72,6 +74,7 @@ const Login = () => {
       >
         SIGNIN
       </button>
+      <h1>{myinfo}</h1>
     </div>
   );
 };
