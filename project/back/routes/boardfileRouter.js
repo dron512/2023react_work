@@ -22,9 +22,10 @@ const storage = multer.diskStorage({
 const upload = multer({storage: storage});
 
 router.post('/upload', upload.single('file'), function (req, res) {
+  const filename = req.file?.filename || '';
   try {
     const {title, content, name, email} = req.body;
-    Board.create({title, content, name, email, filename: req.file.filename});
+    Board.create({title, content, name, email, filename});
     res.send('File uploaded successfully!');
   } catch (e) {
     console.log(e);

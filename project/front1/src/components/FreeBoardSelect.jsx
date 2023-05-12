@@ -61,11 +61,13 @@ const FreeBoardSelect = () => {
               return (
                 <tr key={board.id} style={{textAlign: 'center'}}>
                   <td>
-                    <img
-                      src={`http://localhost:9000/img/${board.filename}`}
-                      width="100"
-                      alt="img"
-                    />
+                    {board.filename && (
+                      <img
+                        src={`http://localhost:9000/img/${board.filename}`}
+                        width="100"
+                        alt="img"
+                      />
+                    )}
                   </td>
                   <td>{board.title}</td>
                   <td>{board.content}</td>
