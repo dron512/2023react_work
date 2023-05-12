@@ -59,7 +59,7 @@ const FreeBoardSelect = () => {
           <tbody>
             {boards.map(board => {
               return (
-                <tr key={board.id} style={{textAlign: 'center'}}>
+                <tr key={board.id} style={{textAlign: 'center',height:'100px'}}>
                   <td>
                     {board.filename && (
                       <img
