@@ -1,6 +1,10 @@
 import axios from 'axios';
 import {memo, useContext, useEffect, useState} from 'react';
 import {selectContext} from '../App';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+const MySwal = withReactContent(Swal)
 
 const UserSelect = () => {
   const {ok, setOk} = useContext(selectContext);
@@ -12,7 +16,12 @@ const UserSelect = () => {
       .then(result => {
         setUsers(result.data);
         myTimer = setTimeout(() => {
-          setOk('select 완료');
+          MySwal.fire({
+            title: <p>Hello World</p>,
+            didOpen: () => {
+              // MySwal.showLoading()
+            },
+          })
         }, 2000);
       })
       .catch(e => {
