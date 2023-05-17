@@ -5,7 +5,6 @@ const bcriypt = require('bcrypt');
 const {User} = require('../db.js');
 
 router.get('/list/:id?', async (req, res) => {
-  console.log(req.params.id);
   const users = await User.findAll({
     order: [['id', 'DESC']],
   });

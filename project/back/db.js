@@ -18,23 +18,22 @@ const User = sequelize.define('user', {
     allowNull: false,
     unique: true,
   },
-  
+
   password: {
     type: Sequelize.STRING(150),
     allowNull: false,
   },
 });
 
-
 const Board = sequelize.define('board', {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
-    autoIncrement: true
+    autoIncrement: true,
   },
   title: {
     type: Sequelize.STRING(50),
-    allowNull: false
+    allowNull: false,
   },
   content: {
     type: Sequelize.STRING(50),
@@ -42,7 +41,7 @@ const Board = sequelize.define('board', {
   },
   name: {
     type: Sequelize.STRING(50),
-    allowNull: false
+    allowNull: false,
   },
   email: {
     type: Sequelize.STRING(50),
@@ -54,15 +53,15 @@ const Board = sequelize.define('board', {
   },
 });
 
-User.hasMany(Board,{foreignKey:"userid",sourceKey:"id"});
-Board.belongsTo(User,{foreignKey:"userid",targetKey:"id"});
+User.hasMany(Board, {foreignKey: 'userid', sourceKey: 'id'});
+Board.belongsTo(User, {foreignKey: 'userid', targetKey: 'id'});
 
-Board.sync({ force: false })
+Board.sync({force: false})
   .then(() => console.log('board table created!'))
   .catch(err => console.error(err));
 
-User.sync({ force: false })
+User.sync({force: false})
   .then(() => console.log('User table created!'))
   .catch(err => console.error(err));
-  
-module.exports = {User,Board};
+
+module.exports = {User, Board};
