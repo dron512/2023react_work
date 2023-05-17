@@ -2,6 +2,7 @@ import axios from 'axios';
 import {useContext, useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {selectContext} from '../App';
+import React from 'react';
 
 const FreeBoardInsert = () => {
   const {ok, setOk} = useContext(selectContext);
@@ -11,7 +12,7 @@ const FreeBoardInsert = () => {
   const [title, setTitle] = useState('');
   const [content, setCotent] = useState('');
 
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState("");
 
   function handleFileChange(e) {
     setFile(e.target.files[0]);
@@ -81,9 +82,8 @@ const FreeBoardInsert = () => {
       <div className="m-1">
         <label>content</label>
         <textarea
-          rows="10"
+          rows={10}
           className="form-control"
-          type="text"
           onChange={contentInput}
           value={content}
         ></textarea>

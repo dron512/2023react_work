@@ -1,3 +1,4 @@
+import React from "react";
 import FreeBoardInsert from "./FreeBoardInsert";
 import FreeBoardSelect from "./FreeBoardSelect";
 
